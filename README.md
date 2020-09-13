@@ -1,2 +1,3 @@
-# Stock crawler
-株価をGoogle Driveに保存し続けるgoogle functions
+# storage2sheet
+
+google cloud storage の CSV ファイルをスプレッドシートに保存
