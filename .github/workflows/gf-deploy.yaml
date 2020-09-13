@@ -3,7 +3,7 @@ name: Google Functions
 on:
   push:
     branches:
-      - feature/init-project
+      - develop
 
 env:
   FUNCTION_ENV: ${{ secrets.FUNCTION_ENV }}
