@@ -12,12 +12,10 @@ class SheetAPI:
         キャッシュのキー
     KEY_FILE : str
         サービスアカウント情報が記載されたローカルのパス
-    MIME_TYPE : str
-        ファイル形式
-    file_key : str
-        google driveのフォルダーのキー
     service : service
         gcpのサービスアカウント
+    SHEET_ID : str
+        スプレッドシートのID
     """
 
     def __init__(self, service_account_key_path: str, sheet_id: str):
@@ -43,7 +41,7 @@ class SheetAPI:
 
         Parameters
         ----------
-        cells : str
+        cells : list
             ファイルの内容(銘柄情報のcsvフォーマット)
         """
 

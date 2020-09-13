@@ -12,10 +12,6 @@ logger.setLevel(DEBUG)
 logger.addHandler(handler)
 logger.propagate = False
 
-"""
-logger: https://qiita.com/amedama/items/b856b2f30c2f38665701
-"""
-
 
 class Runner:
     """
@@ -23,18 +19,10 @@ class Runner:
 
     Attributes
     -------
-    YEARS: list
-        対象年度を格納したリスト
-    CSV_HEADER: str
-        CSVのヘッダー
-    memcache_api : MemcachedAPI
-        キャッシュAPIのインスタンス
-    stock_list_api : StockListAPI
-        株価リストAPIのインスタンス
-    stock_api : KabuojiAPI
-        株価取得APIのインスタンス
-    drive_api: GoogleDriveAPI
-        google driveのAPIのインスタンス
+    storage_api: GoogleCloudStorageAPI
+        APIのインスタンス
+    sheet_api: GoogleSpreadSheetAPI
+        APIのインスタンス
     """
 
     def __init__(
@@ -74,11 +62,6 @@ class Runner:
     def __fetch_stock(self):
         """
         銘柄情報の取得
-
-        Parameters
-        ----------
-        code : str
-            銘柄コード
 
         Returns
         -------
