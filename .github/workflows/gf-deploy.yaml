@@ -50,7 +50,7 @@ jobs:
             --project $GCP_SA_PROJECT_ID \
             --quiet --entry-point=main \
             --trigger-resource $GCP_BACKET_ID \
-            --trigger-event google.storage.object.finalize
+            --trigger-event google.storage.object.finalize \
             --env-vars-file=env.yaml \
             --source=src \
             --runtime=python38 \
