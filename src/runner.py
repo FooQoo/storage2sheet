@@ -72,7 +72,7 @@ class Runner:
 
         df = pd.read_csv(StringIO(csv)).sort_index()
 
-        return df.values.tolist()
+        return [df.columns.tolist()] + df.values.tolist()
 
     def __update_sheet(self, csv):
         self.sheet_api.append(csv)
