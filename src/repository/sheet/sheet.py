@@ -35,7 +35,7 @@ class SheetAPI:
         self.service = self.__get_google_service()
         self.SHEET_ID = sheet_id
 
-    def append(self, cells: list):
+    def update(self, cells: list):
         """
         google spread sheetに行追加
 
@@ -57,6 +57,22 @@ class SheetAPI:
         }
         self.service.spreadsheets().values().batchUpdate(
             spreadsheetId=self.SHEET_ID, body=body).execute()
+
+    def append(self, cells: list):
+        """
+        google spread sheetに行追加
+        Parameters
+        ----------
+        text : str
+            ファイルの内容(銘柄情報のcsvフォーマット)
+        """
+        body = {
+            'values': cells
+        }
+        self.service.spreadsheets().values().append(
+            spreadsheetId=self.SHEET_ID, range='A1',
+            valueInputOption='USER_ENTERED', body=body,
+            insertDataOption='INSERT_ROWS').execute()
 
     def __get_google_service(self):
         """
